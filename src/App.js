@@ -6,16 +6,19 @@ function App() {
     return !!(navigator.mediaDevices &&
       navigator.mediaDevices.getUserMedia);
   }
-  
   if (hasGetUserMedia()) {
     console.log('good to go!!')
   } else {
     alert('getUserMedia() is not supported by your browser');
   }
 
+  const handleChange = (e) => {
+    return e.target.files
+  }
+
   return (
     <div className="App">
-      <input type="file" accept="image/*" capture="environment"></input>
+      <input onChange={handleChange} type="file" accept="image/*" capture="environment"></input>
     </div>
   );
 }
